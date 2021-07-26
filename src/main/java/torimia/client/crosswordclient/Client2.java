@@ -19,7 +19,7 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 
 @Slf4j
-public class Client {
+public class Client2 {
 
     public static final String GAME_ID = "db878410-f401-4a95-b3af-56d1c2539be2"; //enter found gameId
     public static final String USER_LOGIN = "someId222"; //enter created user`s login

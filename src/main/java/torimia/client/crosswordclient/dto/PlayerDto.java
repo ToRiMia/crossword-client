@@ -12,5 +12,7 @@ import lombok.NoArgsConstructor;
 public class PlayerDto {
     private String login;
 
+    private Region region;
+
     private int guessedWords;
 }
