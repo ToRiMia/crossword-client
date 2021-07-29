@@ -30,11 +30,13 @@ public class MyStompSessionHandler implements StompSessionHandler {
     @Override
     public void handleException(StompSession stompSession, StompCommand stompCommand, StompHeaders stompHeaders, byte[] bytes, Throwable throwable) {
         log.error("Throwable", throwable);
+        System.exit(2);
     }
 
     @Override
     public void handleTransportError(StompSession stompSession, Throwable throwable) {
         log.error("TransportError", throwable);
+        System.exit(2);
     }
 
     @Override
@@ -64,5 +66,6 @@ public class MyStompSessionHandler implements StompSessionHandler {
     public void onError(Session session, Throwable throwable) {
         log.error("Error for " + session.getId() + " caused by: " + throwable.getMessage());
         throwable.printStackTrace();
+        System.exit(2);
     }
 }
