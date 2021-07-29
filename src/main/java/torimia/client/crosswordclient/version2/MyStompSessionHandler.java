@@ -1,4 +1,4 @@
-package torimia.client.crosswordclient;
+package torimia.client.crosswordclient.version2;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,7 +6,7 @@ import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.messaging.simp.stomp.StompSessionHandler;
-import torimia.client.crosswordclient.dto.GameDto;
+import torimia.client.crosswordclient.version2.dto.GameDto;
 
 import javax.websocket.OnError;
 import javax.websocket.Session;

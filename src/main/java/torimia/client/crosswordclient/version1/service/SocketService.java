@@ -1,4 +1,4 @@
-package torimia.client.crosswordclient.service;
+package torimia.client.crosswordclient.version1.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -9,7 +9,7 @@ import org.springframework.web.socket.WebSocketHttpHeaders;
 import org.springframework.web.socket.client.WebSocketClient;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
-import torimia.client.crosswordclient.MyStompSessionHandler;
+import torimia.client.crosswordclient.version1.MyStompSessionHandler;
 
 import java.util.concurrent.ExecutionException;
 

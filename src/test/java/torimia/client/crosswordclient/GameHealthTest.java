@@ -2,23 +2,25 @@ package torimia.client.crosswordclient;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import torimia.client.crosswordclient.version1.dto.GameDto;
 import torimia.client.crosswordclient.version1.dto.GameStatus;
-import torimia.client.crosswordclient.version1.dto.PlayerDto;
 import torimia.client.crosswordclient.version1.dto.Region;
 import torimia.client.crosswordclient.version1.dto.user.UserDto;
-import torimia.client.crosswordclient.version1.service.GameService;
-import torimia.client.crosswordclient.version1.service.MongoService;
-import torimia.client.crosswordclient.version1.service.UserService;
+import torimia.client.crosswordclient.version2.dto.GameDto;
+import torimia.client.crosswordclient.version2.dto.PlayerDto;
+import torimia.client.crosswordclient.version2.service.GameService;
+import torimia.client.crosswordclient.version2.service.MongoService;
+import torimia.client.crosswordclient.version2.service.UserService;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class GameTest {
+class GameHealthTest {
 
     private final UserService userService = new UserService();
     private final GameService gameService = new GameService();
@@ -28,6 +30,7 @@ class GameTest {
     private static final GameStatus PENDING = GameStatus.PENDING;
     private static final String USER_REGION_RU = "RU";
     private static final String USER_REGION_EN = "EN";
+    private static final int HEALTH_NUMBER = 100;
 
     private UserDto userDto;
     private String gameId;
@@ -39,6 +42,7 @@ class GameTest {
                 .build();
     }
 
+    @Disabled
     @Test
     void findGameRU() {
         userDto.setRegion(USER_REGION_RU);
@@ -50,20 +54,17 @@ class GameTest {
 
         assertThat(actual)
                 .returns(PENDING, GameDto::getStatus);
-        assertThat(actual.getPlayers())
-                .containsOnly(getExpectedPlayer(USER_REGION_RU));
-        assertThat(actual.getWords())
-                .isPositive();
-        assertThat(matchSymbols(actual.getSymbols(), "^[а-яА-ЯёЁ\\s]+$"))
-                .isTrue();
-    }
 
-    private PlayerDto getExpectedPlayer(String region) {
-        return PlayerDto.builder()
-                .login(USER_LOGIN)
-                .region(Region.valueOf(region))
-                .guessedWords(0)
-                .build();
+        assertThat(actual.getPlayers().stream().findFirst())
+                .isPresent()
+                .get()
+                .returns(USER_LOGIN, PlayerDto::getLogin)
+                .returns(Region.RU, PlayerDto::getRegion)
+                .returns(HEALTH_NUMBER, PlayerDto::getHealth);
+
+        List<Character> symbols = actual.getPlayers().stream().findFirst().get().getSymbols();
+        assertThat(matchSymbols(symbols, "^[а-яА-ЯёЁ\\s]+$"))
+                .isTrue();
     }
 
     public static boolean matchSymbols(Collection<Character> symbols, String patternString) {
@@ -72,6 +73,7 @@ class GameTest {
         return pattern.matcher(symbolsString).find();
     }
 
+    @Disabled
     @Test
     void findGameEN() {
         userDto.setRegion(USER_REGION_EN);
@@ -83,15 +85,20 @@ class GameTest {
 
         assertThat(actual)
                 .returns(PENDING, GameDto::getStatus);
-        assertThat(actual.getPlayers())
-                .containsOnly(getExpectedPlayer(USER_REGION_EN));
-        assertThat(actual.getWords())
-                .isPositive();
-        assertThat(matchSymbols(actual.getSymbols(), "^[a-zA-Z\\s]+$"))
+
+        assertThat(actual.getPlayers().stream().findFirst())
+                .isPresent()
+                .get()
+                .returns(USER_LOGIN, PlayerDto::getLogin)
+                .returns(Region.EN, PlayerDto::getRegion)
+                .returns(HEALTH_NUMBER, PlayerDto::getHealth);
+
+        List<Character> symbols = actual.getPlayers().stream().findFirst().get().getSymbols();
+        assertThat(matchSymbols(symbols, "^[a-zA-Z\\s]+$"))
                 .isTrue();
     }
 
-
+    @Disabled
     @Test
     void cancelGame() {
         userDto.setRegion(USER_REGION_RU);

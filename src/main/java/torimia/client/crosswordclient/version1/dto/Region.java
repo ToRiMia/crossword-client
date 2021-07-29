@@ -1,4 +1,4 @@
-package torimia.client.crosswordclient.dto;
+package torimia.client.crosswordclient.version1.dto;
 
 /**
  * If you want to add new region, you need also add a new dictionary(looking for the instruction in README)

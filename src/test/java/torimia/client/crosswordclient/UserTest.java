@@ -2,10 +2,10 @@ package torimia.client.crosswordclient;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import torimia.client.crosswordclient.dto.user.Role;
-import torimia.client.crosswordclient.dto.user.UserDto;
-import torimia.client.crosswordclient.service.MongoService;
-import torimia.client.crosswordclient.service.UserService;
+import torimia.client.crosswordclient.version1.dto.user.Role;
+import torimia.client.crosswordclient.version1.dto.user.UserDto;
+import torimia.client.crosswordclient.version1.service.MongoService;
+import torimia.client.crosswordclient.version1.service.UserService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

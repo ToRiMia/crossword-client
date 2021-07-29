@@ -3,7 +3,7 @@ package torimia.client.crosswordclient;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import torimia.client.crosswordclient.service.MongoService;
+import torimia.client.crosswordclient.version1.service.MongoService;
 
 @Slf4j
 @RequiredArgsConstructor

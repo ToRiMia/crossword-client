@@ -1,8 +1,8 @@
-package torimia.client.crosswordclient.service;
+package torimia.client.crosswordclient.version1.service;
 
 import lombok.extern.slf4j.Slf4j;
 import torimia.client.crosswordclient.HttpClient;
-import torimia.client.crosswordclient.dto.GameDto;
+import torimia.client.crosswordclient.version1.dto.GameDto;
 
 @Slf4j
 public class GameService {

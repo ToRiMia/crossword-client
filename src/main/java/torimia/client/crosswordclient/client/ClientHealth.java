@@ -12,7 +12,7 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 
 @Slf4j
-public class Client {
+public class ClientHealth {
 
     public static final String USER_LOGIN = "someId111"; //enter created user`s login
     public static final String GUESS_PATH = "/crossword/guess.";
