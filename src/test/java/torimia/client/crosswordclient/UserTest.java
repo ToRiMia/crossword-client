@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class UserTest {
 
     private final UserService userService = new UserService();
-    private final MongoService mongoService = new MongoService();
+    private final MongoService mongoService = new MongoService("game1");
 
     private static final String USER_LOGIN = "loginLogin";
     private static final String USER_REGION_RU = "ru";

@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import torimia.client.crosswordclient.version1.dto.GameStatus;
 import torimia.client.crosswordclient.version1.dto.Region;
 import torimia.client.crosswordclient.version1.dto.user.UserDto;
+import torimia.client.crosswordclient.version1.service.MongoService;
 import torimia.client.crosswordclient.version2.dto.GameDto;
 import torimia.client.crosswordclient.version2.dto.PlayerDto;
 import torimia.client.crosswordclient.version2.service.GameService;
-import torimia.client.crosswordclient.version2.service.MongoService;
 import torimia.client.crosswordclient.version2.service.UserService;
 
 import java.util.Collection;
@@ -24,7 +24,7 @@ class GameHealthTest {
 
     private final UserService userService = new UserService();
     private final GameService gameService = new GameService();
-    private final MongoService mongoService = new MongoService();
+    private final MongoService mongoService = new MongoService("game2");
 
     private static final String USER_LOGIN = "loginLogin";
     private static final GameStatus PENDING = GameStatus.PENDING;

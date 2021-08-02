@@ -4,9 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.simp.stomp.StompSession;
 import torimia.client.crosswordclient.ShutdownTask;
 import torimia.client.crosswordclient.version1.dto.GuessDto;
-import torimia.client.crosswordclient.version1.service.GameService;
+import torimia.client.crosswordclient.version1.service.MongoService;
 import torimia.client.crosswordclient.version1.service.SocketService;
 import torimia.client.crosswordclient.version1.service.UserService;
+import torimia.client.crosswordclient.version2.MyStompSessionHandler;
+import torimia.client.crosswordclient.version2.service.GameService;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
@@ -26,9 +28,9 @@ public class ClientHealth {
         String token = userService.login(USER_LOGIN);
         String gameId = gameService.find(token).getGameId();
 
-        Runtime.getRuntime().addShutdownHook(new ShutdownTask(gameId));
+        Runtime.getRuntime().addShutdownHook(new ShutdownTask(new MongoService("game2"), gameId));
 
-        StompSession session = socketService.createSession(token, gameId);
+        StompSession session = socketService.createSession(token, new MyStompSessionHandler(gameId));
 
         while (true) {
             Thread.sleep(1000);

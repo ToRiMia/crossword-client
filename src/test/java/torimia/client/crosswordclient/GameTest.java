@@ -22,7 +22,7 @@ class GameTest {
 
     private final UserService userService = new UserService();
     private final GameService gameService = new GameService();
-    private final MongoService mongoService = new MongoService();
+    private final MongoService mongoService = new MongoService("game");
 
     private static final String USER_LOGIN = "loginLogin";
     private static final GameStatus PENDING = GameStatus.PENDING;

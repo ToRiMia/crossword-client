@@ -9,14 +9,15 @@ import torimia.client.crosswordclient.version1.service.MongoService;
 @RequiredArgsConstructor
 public class ShutdownTask extends Thread {
 
-    private static final MongoService mongoService = new MongoService();
+    private final MongoService mongoService;
     private final String gameId;
 
     @SneakyThrows
     @Override
     public void run() {
         Thread.sleep(1000);
-        mongoService.deleteGame(gameId);
-        log.info("Game with id \"{}\" deleted", gameId);
+        if (mongoService.deleteGame(gameId) == 1) {
+            log.info("Game with id \"{}\" deleted", gameId);
+        } else log.info("Game with id \"{}\" not deleted", gameId);
     }
 }
