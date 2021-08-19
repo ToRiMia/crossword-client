@@ -1,10 +1,8 @@
-package torimia.client.crosswordclient.version1.dto;
+package torimia.client.crosswordclient.dto;
 
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -17,14 +15,10 @@ public class GameDto {
 
     private GameStatus status;
 
-    private int words;
+    private RoundDto round;
 
-    private String winner = "none";
+    private Region region;
 
-    @Builder.Default
-    private List<Character> symbols = new ArrayList<>();
-
-    @Builder.Default
     private Set<PlayerDto> players = new HashSet<>();
 }
 

@@ -1,10 +1,9 @@
-package torimia.client.crosswordclient.version3.dto;
+package torimia.client.crosswordclient.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import torimia.client.crosswordclient.version1.dto.Region;
 
 @Data
 @Builder

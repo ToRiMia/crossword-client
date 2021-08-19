@@ -1,4 +1,4 @@
-package torimia.client.crosswordclient.version1.dto;
+package torimia.client.crosswordclient.dto;
 
 public enum GameStatus {
     PENDING, IN_PROGRESS, FINISHED, CANCELED

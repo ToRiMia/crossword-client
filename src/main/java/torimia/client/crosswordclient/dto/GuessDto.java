@@ -1,4 +1,4 @@
-package torimia.client.crosswordclient.version1.dto;
+package torimia.client.crosswordclient.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

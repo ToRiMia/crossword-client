@@ -1,10 +1,10 @@
-package torimia.client.crosswordclient.version2.service;
+package torimia.client.crosswordclient.service;
 
 import lombok.extern.slf4j.Slf4j;
 import torimia.client.crosswordclient.HttpClient;
-import torimia.client.crosswordclient.version1.dto.user.AccessTokenDto;
-import torimia.client.crosswordclient.version1.dto.user.LoginDto;
-import torimia.client.crosswordclient.version1.dto.user.UserDto;
+import torimia.client.crosswordclient.dto.user.AccessTokenDto;
+import torimia.client.crosswordclient.dto.user.LoginDto;
+import torimia.client.crosswordclient.dto.user.UserDto;
 
 @Slf4j
 public class UserService {

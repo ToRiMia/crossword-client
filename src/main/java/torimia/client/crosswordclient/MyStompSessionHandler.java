@@ -1,4 +1,4 @@
-package torimia.client.crosswordclient.version2;
+package torimia.client.crosswordclient;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,7 +6,8 @@ import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.messaging.simp.stomp.StompSessionHandler;
-import torimia.client.crosswordclient.version2.dto.GameDto;
+import torimia.client.crosswordclient.dto.GameDto;
+import torimia.client.crosswordclient.dto.TestDto;
 
 import javax.websocket.OnError;
 import javax.websocket.Session;
@@ -25,6 +26,8 @@ public class MyStompSessionHandler implements StompSessionHandler {
         destination = "/topic/crossword.result." + gameId;
         session.subscribe(destination, this);
         log.info("Subscribed to: " + destination);
+        session.subscribe("/topic/crossword.test", this);
+        log.info("Subscribed to: " + "/topic/crossword.test");
     }
 
     @Override
@@ -44,8 +47,7 @@ public class MyStompSessionHandler implements StompSessionHandler {
         String topic = Optional.ofNullable(stompHeaders.getDestination()).orElse("Topic doesn't exists");
         if (destination.equals(topic)) {
             return GameDto.class;
-        }
-        throw new NullPointerException("Unknown topic: " + destination);
+        } return TestDto.class;
     }
 
     @Override
@@ -57,7 +59,7 @@ public class MyStompSessionHandler implements StompSessionHandler {
                 log.info("------------- Received from: " + headers.getDestination() + " -------------");
                 log.info("Result: " + progress);
             } else {
-                log.info("Unknown object: " + payload);
+                log.info("Unknown object: " + payload.toString());
             }
         }
     }

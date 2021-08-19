@@ -1,4 +1,4 @@
-package torimia.client.crosswordclient.version1.service;
+package torimia.client.crosswordclient.service;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoClients;

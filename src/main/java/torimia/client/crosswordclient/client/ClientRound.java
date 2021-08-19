@@ -2,13 +2,13 @@ package torimia.client.crosswordclient.client;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.simp.stomp.StompSession;
+import torimia.client.crosswordclient.MyStompSessionHandler;
 import torimia.client.crosswordclient.ShutdownTask;
-import torimia.client.crosswordclient.version1.dto.GuessDto;
-import torimia.client.crosswordclient.version1.service.MongoService;
-import torimia.client.crosswordclient.version1.service.SocketService;
-import torimia.client.crosswordclient.version1.service.UserService;
-import torimia.client.crosswordclient.version3.MyStompSessionHandler;
-import torimia.client.crosswordclient.version3.service.GameService;
+import torimia.client.crosswordclient.dto.GuessDto;
+import torimia.client.crosswordclient.service.GameService;
+import torimia.client.crosswordclient.service.MongoService;
+import torimia.client.crosswordclient.service.SocketService;
+import torimia.client.crosswordclient.service.UserService;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
@@ -28,7 +28,7 @@ public class ClientRound {
         String token = userService.login(USER_LOGIN);
         String gameId = gameService.find(token).getGameId();
 
-        Runtime.getRuntime().addShutdownHook(new ShutdownTask(new MongoService("game3"), gameId));
+        Runtime.getRuntime().addShutdownHook(new ShutdownTask(new MongoService("game"), gameId));
 
         StompSession session = socketService.createSession(token, new MyStompSessionHandler(gameId));
 

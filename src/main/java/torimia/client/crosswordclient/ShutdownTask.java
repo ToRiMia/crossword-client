@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
-import torimia.client.crosswordclient.version1.service.MongoService;
+import torimia.client.crosswordclient.service.MongoService;
 
 @Slf4j
 @RequiredArgsConstructor
