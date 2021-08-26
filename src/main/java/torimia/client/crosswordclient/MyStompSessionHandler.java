@@ -6,8 +6,8 @@ import org.springframework.messaging.simp.stomp.StompCommand;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
 import org.springframework.messaging.simp.stomp.StompSessionHandler;
-import torimia.client.crosswordclient.dto.GameDto;
 import torimia.client.crosswordclient.dto.TestDto;
+import torimia.client.crosswordclient.dto.user.GameDto;
 
 import javax.websocket.OnError;
 import javax.websocket.Session;

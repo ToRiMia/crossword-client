@@ -1,15 +1,16 @@
-package torimia.client.crosswordclient.dto;
+package torimia.client.crosswordclient.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import torimia.client.crosswordclient.dto.Region;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PlayerDto {
+public class CrosswordPlayerDto {
 
     private String login;
 

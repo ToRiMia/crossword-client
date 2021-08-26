@@ -3,10 +3,10 @@ package torimia.client.crosswordclient;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import torimia.client.crosswordclient.dto.GameDto;
 import torimia.client.crosswordclient.dto.GameStatus;
-import torimia.client.crosswordclient.dto.PlayerDto;
 import torimia.client.crosswordclient.dto.Region;
+import torimia.client.crosswordclient.dto.user.CrosswordPlayerDto;
+import torimia.client.crosswordclient.dto.user.GameDto;
 import torimia.client.crosswordclient.dto.user.UserDto;
 import torimia.client.crosswordclient.service.GameService;
 import torimia.client.crosswordclient.service.MongoService;
@@ -58,8 +58,8 @@ class GameTest {
 //                .isTrue();
     }
 
-    private PlayerDto getExpectedPlayer(String region) {
-        return PlayerDto.builder()
+    private CrosswordPlayerDto getExpectedPlayer(String region) {
+        return CrosswordPlayerDto.builder()
                 .login(USER_LOGIN)
                 .region(Region.valueOf(region))
                 .guessedWords(0)

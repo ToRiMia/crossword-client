@@ -4,10 +4,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import torimia.client.crosswordclient.dto.GameDto;
 import torimia.client.crosswordclient.dto.GameStatus;
-import torimia.client.crosswordclient.dto.PlayerDto;
 import torimia.client.crosswordclient.dto.Region;
+import torimia.client.crosswordclient.dto.user.CrosswordPlayerDto;
+import torimia.client.crosswordclient.dto.user.GameDto;
 import torimia.client.crosswordclient.dto.user.UserDto;
 import torimia.client.crosswordclient.service.GameService;
 import torimia.client.crosswordclient.service.MongoService;
@@ -57,9 +57,9 @@ class GameHealthTest {
         assertThat(actual.getPlayers().stream().findFirst())
                 .isPresent()
                 .get()
-                .returns(USER_LOGIN, PlayerDto::getLogin)
-                .returns(Region.RU, PlayerDto::getRegion);
-//                .returns(HEALTH_NUMBER, PlayerDto::getHealth);
+                .returns(USER_LOGIN, CrosswordPlayerDto::getLogin)
+                .returns(Region.RU, CrosswordPlayerDto::getRegion);
+//                .returns(HEALTH_NUMBER, CrosswordPlayerDto::getHealth);
 
 //        List<Character> symbols = actual.getPlayers().stream().findFirst().get().getSymbols();
 //        assertThat(matchSymbols(symbols, "^[а-яА-ЯёЁ\\s]+$"))
@@ -88,9 +88,9 @@ class GameHealthTest {
         assertThat(actual.getPlayers().stream().findFirst())
                 .isPresent()
                 .get()
-                .returns(USER_LOGIN, PlayerDto::getLogin)
-                .returns(Region.EN, PlayerDto::getRegion);
-//                .returns(HEALTH_NUMBER, PlayerDto::getHealth);
+                .returns(USER_LOGIN, CrosswordPlayerDto::getLogin)
+                .returns(Region.EN, CrosswordPlayerDto::getRegion);
+//                .returns(HEALTH_NUMBER, CrosswordPlayerDto::getHealth);
 //
 //        List<Character> symbols = actual.getPlayers().stream().findFirst().get().getSymbols();
 //        assertThat(matchSymbols(symbols, "^[a-zA-Z\\s]+$"))

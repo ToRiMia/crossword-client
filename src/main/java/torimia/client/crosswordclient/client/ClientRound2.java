@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 @Slf4j
 public class ClientRound2 {
 
-    public static final String USER_LOGIN = "someId222"; //enter created user`s login
+    public static final String USER_LOGIN = "2"; //enter created user`s login
     public static final String GUESS_PATH = "/crossword/guess.";
     public static final String SURRENDER_PATH = "/crossword/surrender.";
 
