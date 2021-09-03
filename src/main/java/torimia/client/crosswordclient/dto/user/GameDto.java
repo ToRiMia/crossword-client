@@ -16,6 +16,8 @@ public class GameDto {
 
     private String gameId;
 
+    private String winner;
+
     private GameStatus status;
 
     private Region region;

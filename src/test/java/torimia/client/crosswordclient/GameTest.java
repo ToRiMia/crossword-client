@@ -85,10 +85,10 @@ class GameTest {
                 .returns(PENDING, GameDto::getStatus);
         assertThat(actual.getPlayers())
                 .containsOnly(getExpectedPlayer(USER_REGION_EN));
-//        assertThat(actual.getWords())
-//                .isPositive();
-//        assertThat(matchSymbols(actual.getSymbols(), "^[a-zA-Z\\s]+$"))
-//                .isTrue();
+        assertThat(actual.getRound().getWords())
+                .isPositive();
+        assertThat(matchSymbols(actual.getRound().getSymbols(), "^[a-zA-Z\\s]+$"))
+                .isTrue();
     }
 
 
